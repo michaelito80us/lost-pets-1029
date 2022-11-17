@@ -1,0 +1,19 @@
+<div class="container">
+  <h1><%= @pet.name %></h1>
+  <% if @pet.image.present? %>
+  <%= image_tag @pet.image, alt: "text", width: 400 %>
+  <% end %>
+
+  <p>found on: <%= @pet.found_on.strftime("%B %e, %Y") %></p>
+  <p>found at: <%= @pet.address %></p>
+  <div>
+  <%= link_to "back", pets_path %>
+  </div>
+<div>
+  <%= link_to 'Edit Information', edit_pet_path %>
+</div>
+<div>
+  <%= link_to "delete #{@pet.name}", pet_path(@pet), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</div>
+
+</div>
